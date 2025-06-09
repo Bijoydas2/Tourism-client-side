@@ -1,11 +1,92 @@
 import React from 'react';
+import { NavLink } from 'react-router';  // 'react-router-dom' use করতে হবে
 
 const Navbar = () => {
-    return (
-        <div>
-            
+
+  const navLinks = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+              : "hover:text-blue-500 transition-colors duration-300"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/packages"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+              : "hover:text-blue-500 transition-colors duration-300"
+          }
+        >
+          All Packages
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+              : "hover:text-blue-500 transition-colors duration-300"
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
+    </>
+  );
+
+  return (
+    <div className="navbar bg-white shadow-md">
+      <div className="navbar-start">
+        {/* Mobile menu button */}
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-white rounded-box w-52"
+          >
+            {navLinks}
+          </ul>
         </div>
-    );
+
+        {/* Logo */}
+        <NavLink to="/" className="btn btn-ghost normal-case text-2xl text-blue-700 font-bold flex items-center gap-2">
+          <img src="/logo.png" alt="logo" className="w-8 h-8 mr-2 rounded-full border-2 border-blue-600" />
+          TourMate
+        </NavLink>
+      </div>
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 gap-6 text-lg">
+          {navLinks}
+        </ul>
+      </div>
+
+      <div className="navbar-end  lg:flex">
+        <NavLink
+          to="/login"
+          className="btn btn-outline btn-blue-600 btn-sm rounded hover:bg-blue-600 hover:text-white transition duration-300"
+        >
+          Login
+        </NavLink>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
