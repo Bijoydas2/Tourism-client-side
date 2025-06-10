@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router';  // 'react-router-dom' use করতে হবে
-
+import { NavLink } from 'react-router'; 
+import logo from '../../assets/logo.png'
 const Navbar = () => {
 
   const navLinks = (
@@ -65,8 +65,8 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
-        <NavLink to="/" className="btn btn-ghost normal-case text-2xl text-blue-700 font-bold flex items-center gap-2">
-          <img src="/logo.png" alt="logo" className="w-8 h-8 mr-2 rounded-full border-2 border-blue-600" />
+        <NavLink to="/" className="btn btn-ghost normal-case text-2xl text-blue-700 font-bold flex items-center gap-1">
+          <img src={logo} alt="logo" className="w-10 h-10 mr-1 " />
           TourMate
         </NavLink>
       </div>

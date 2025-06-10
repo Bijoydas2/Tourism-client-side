@@ -1,4 +1,5 @@
 import React from "react";
+import logo from '../../assets/logo.png'
 
 const Footer = () => {
   return (
@@ -8,9 +9,9 @@ const Footer = () => {
         <div className="mb-8 md:mb-0 md:w-1/3">
           <div className="flex items-center mb-4">
             <img
-              src="/logo.png"
+              src={logo}
               alt="TourMate Logo"
-              className="w-10 h-10 rounded-full border-2 border-blue-600 mr-3"
+              className="w-10 h-10 rounded-full mr-2"
             />
             <span className="text-2xl font-bold text-blue-700">TourMate</span>
           </div>
