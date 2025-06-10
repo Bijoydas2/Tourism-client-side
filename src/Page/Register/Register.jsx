@@ -2,8 +2,34 @@ import { Link } from "react-router";
 import SocailLogin from "../Shared/SocailLogin";
 import Lottie from "lottie-react";
 import registerLottie from "../../assets/Lotties/register.json";
+import { use } from "react";
+import { AuthContext } from "../../Context/Context";
 
 const Register = () => {
+   const {createUser}= use(AuthContext)
+
+  const handleRegister = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photoURL.value;
+    console.log(name,email,password,photo)
+    // createUser
+    createUser(email,password)
+    .then((result) => {
+    console.log(result.user)
+     
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    // const errorMessage = error.message;
+    console.log(errorCode)
+  })
+
+  }
+
     return (
         <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-blue-100 to-purple-100 p-4">
           
@@ -16,7 +42,7 @@ const Register = () => {
             <div className="w-full md:w-1/2 bg-white shadow-xl rounded-xl p-8 max-w-lg mx-auto">
                 <h2 className="text-3xl font-extrabold text-center text-blue-600 mb-8">Create an Account</h2>
                 
-                <form>
+                <form onSubmit={handleRegister}>
                     
                     <div className="mb-4">
                         <label className="block text-sm font-medium mb-1" htmlFor="name">Full Name</label>
