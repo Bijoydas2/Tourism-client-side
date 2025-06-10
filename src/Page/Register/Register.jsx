@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import registerLottie from "../../assets/Lotties/register.json";
 import { use } from "react";
 import { AuthContext } from "../../Context/Context";
+import { toast } from "react-toastify";
 
 const Register = () => {
    const {createUser}= use(AuthContext)
@@ -16,16 +17,33 @@ const Register = () => {
     const password = form.password.value;
     const photo = form.photoURL.value;
     console.log(name,email,password,photo)
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+
+    
+  if (!name || !email || !password || !photo) {
+    toast.error("All fields are required!");
+    return;
+  }
+
+  if (!passwordRegex.test(password)) {
+    toast.error("Password must be at least 6 characters long and include one uppercase and one lowercase letter.");
+    return;
+  }
     // createUser
     createUser(email,password)
     .then((result) => {
-    console.log(result.user)
+    console.log(result.user);
+    toast.success("YOur Account created successfully!");
+      form.reset();
      
   })
   .catch((error) => {
     const errorCode = error.code;
-    // const errorMessage = error.message;
-    console.log(errorCode)
+
+    console.log(errorCode);
+     toast.error(`Registration failed: ${error.code}`);
   })
 
   }
