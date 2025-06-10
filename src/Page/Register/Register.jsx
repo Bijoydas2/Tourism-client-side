@@ -7,21 +7,17 @@ import { AuthContext } from "../../Context/Context";
 import { toast } from "react-toastify";
 
 const Register = () => {
-   const {createUser}= use(AuthContext)
+   const {createUser,updateUserProfile}= use(AuthContext)
+const handleRegister = e => {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const password = form.password.value;
+  const photo = form.photoURL.value.trim();
 
-  const handleRegister = e =>{
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const photo = form.photoURL.value;
-    console.log(name,email,password,photo)
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-
-
-    
   if (!name || !email || !password || !photo) {
     toast.error("All fields are required!");
     return;
@@ -31,22 +27,26 @@ const Register = () => {
     toast.error("Password must be at least 6 characters long and include one uppercase and one lowercase letter.");
     return;
   }
-    // createUser
-    createUser(email,password)
-    .then((result) => {
-    console.log(result.user);
-    toast.success("YOur Account created successfully!");
-      form.reset();
-     
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-
-    console.log(errorCode);
-     toast.error(`Registration failed: ${error.code}`);
-  })
-
-  }
+//  create user
+  createUser(email, password)
+    .then(result => {
+      const user = result.user;
+       console.log(user);
+      // update profile with name and photo
+      updateUserProfile({
+        displayName: name,
+        photoURL: photo
+      }).then(() => {
+        toast.success("Your Account created successfully!");
+        form.reset();
+      }).catch(error => {
+        toast.error(`Profile update failed: ${error.message}`);
+      });
+    })
+    .catch(error => {
+      toast.error(`Registration failed: ${error.message}`);
+    });
+};
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-blue-100 to-purple-100 p-4">
@@ -115,6 +115,7 @@ const Register = () => {
                     >
                         Register
                     </button>
+                    
                 </form>
 
                 
