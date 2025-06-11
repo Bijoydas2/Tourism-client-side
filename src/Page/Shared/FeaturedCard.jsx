@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const FeaturedCard = ({ package: pkg }) => {
   return (
-    <div className="w-11/12 mx-auto rounded-2xl p-4 shadow-md hover:shadow-xl transition duration-300 bg-white mt-10">
+    <div className="w-11/12 mx-auto rounded-2xl p-4 shadow-md hover:shadow-xl transition duration-300 bg-white mt-6">
       <img
         src={pkg.image}
         alt={pkg.tour_name}
