@@ -1,41 +1,75 @@
 import { Link } from "react-router";
-import { motion } from "motion/react"
+import { motion } from "framer-motion";
 
 const HeroBanner = () => {
   return (
-    <div className="hero  bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-          <motion.img
-          src="https://img.freepik.com/free-photo/travel-concept-with-landmarks_23-2149153253.jpg"
-          alt="Travel illustration"
-          className="max-w-md rounded-lg shadow-2xl"
-          animate={{
-            scale: [1, 1.05, 1], 
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <div className="text-center lg:text-left">
-           <motion.h1
-      initial={{scale:0}}
-      animate={{scale:1, transition:{duration:4}}}
-       className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-700">Welcome <motion.span
-       animate={{
-         color: ["#F59E0B", "#10B981", "#3B82F6"], 
-        transition:{duration:4,repeat:Infinity}
-       }}
-       >To Tormate</motion.span> </motion.h1>
-          <p className="py-6 text-gray-700">
-            Discover unforgettable destinations and curated travel experiences with Toremate.
-            Whether you're seeking adventure, relaxation, or culture — we’ve got the perfect package for you.
-          </p>
+    <div className="relative min-h-screen flex items-center justify-center px-4 text-white overflow-hidden">
+   
+      <motion.div
+        className="absolute inset-0 bg-center bg-cover"
+        style={{
+          backgroundImage:
+            "url('https://i.ibb.co/GfW031p4/full-shot-travel-concept-with-landmarks.jpg')",
+          zIndex: 0,
+        }}
+        animate={{
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+     
+      <div className="absolute inset-0 bg-opacity-50" style={{ zIndex: 1 }}></div>
+
+      
+      <div className="relative z-10 max-w-3xl text-center">
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold"
+        >
+          Welcome{" "}
+          <motion.span
+            animate={{
+              color: ["#F59E0B", "#10B981", "#3B82F6"],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            To Toremate
+          </motion.span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="py-6 text-base md:text-lg"
+        >
+          Discover unforgettable destinations and curated travel experiences with Toremate.
+          Whether you're seeking <span className="font-semibold text-yellow-300">adventure</span>,
+          <span className="font-semibold text-green-300"> relaxation</span>, or
+          <span className="font-semibold text-purple-300"> culture</span> — we’ve got the perfect package for you.
+        </motion.p>
+
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-block"
+        >
           <Link to="/packages">
-            <button className="btn btn-primary text-white hover:text-blue-700 hover:bg-white p-4">Explore All Packages</button>
+            <button className="btn bg-blue-600 text-white hover:bg-white hover:text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg transition duration-300">
+              Explore All Packages
+            </button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
