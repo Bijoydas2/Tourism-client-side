@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const PackageBook = () => {
     const {id: pkgId} =useParams();
-    const {tour_name,price, guide_email, guide_name,departure_date} = useLoaderData();
+    const {tour_name,price, guide_email, guide_name,destination,departure_location,departure_date,guide_contact_no} = useLoaderData();
     const bookingDate = new Date().toISOString().slice(0, 10);
     const {user}=use(AuthContext);
 
@@ -31,6 +31,9 @@ const PackageBook = () => {
          booking_date: date,     
          departure_date: departure_date,
          notes: note,
+         guide_contact_no,
+         departure_location,
+         destination,
          status: 'pending'
     };
     axios.post('http://localhost:3000/bookings',bookingInfo)

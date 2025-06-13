@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { Suspense, use, useState } from 'react';
+import BookingList from './BookingList';
+import Loading from '../Shared/Loading';
+
+import { myBookingsPromise } from '../../api/bookingsApi';
+import { AuthContext } from '../../Context/Context';
+
 
 const MyBooking = () => {
+    const {user}=use(AuthContext);
+    const [refreshIndex, setRefreshIndex] = useState(0);
+      const promise = myBookingsPromise(user.email, refreshIndex);
+   
     return (
         <div>
             
+            <Suspense fallback={<Loading/>}>
+                <BookingList
+                myBookingsPromise={promise}
+                onConfirmed={() => setRefreshIndex((prev) => prev + 1)}>
+                
+                </BookingList>
+            </Suspense>
         </div>
     );
 };
