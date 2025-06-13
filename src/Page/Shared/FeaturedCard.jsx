@@ -28,7 +28,7 @@ const FeaturedCard = ({ package: pkg }) => {
         <strong>Departure:</strong> {pkg.departure_date}
       </p>
       <p className="text-sm text-gray-600">
-        <strong>Price:</strong> ৳{pkg.price}
+        <strong>Price:</strong> ${pkg.price}
       </p>
 
       <Link

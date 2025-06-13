@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocailLogin from '../Shared/SocailLogin';
 import Lottie from 'lottie-react';
 import loginLottie from '../../assets/Lotties/login.json';
@@ -8,6 +8,9 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const {signIn}= use(AuthContext)
+    const location = useLocation();
+    const navigate= useNavigate();
+    const from=location.state || "/";
 
    const handleLogin = e =>{
     e.preventDefault();
@@ -22,7 +25,9 @@ const Login = () => {
        .then((result) => {
         console.log(result.user);
         toast.success("Your Account LogIn successfully!");
-          form.reset();
+        
+        form.reset();
+        navigate(from)
          
       })
       .catch((error) => {
@@ -73,7 +78,7 @@ const Login = () => {
                     </button>
                 </form>
 
-              <SocailLogin/>
+              <SocailLogin from={from}></SocailLogin>
 
                 <div className="mt-6 text-center">
                     <p className="text-sm">

@@ -46,7 +46,7 @@ const AllPackages = () => {
             </div>
             <p className="mt-2"><strong>Duration:</strong> {pkg.duration}</p>
             <p><strong>Departure:</strong> {pkg.departure_date}</p>
-            <p><strong>Price:</strong> ৳{pkg.price}</p>
+            <p><strong>Price:</strong> ${pkg.price}</p>
              <Link
               to={`/packages/${pkg._id}`}
               className="mt-4 block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700"

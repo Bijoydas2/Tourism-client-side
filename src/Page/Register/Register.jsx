@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate} from "react-router";
 import SocailLogin from "../Shared/SocailLogin";
 import Lottie from "lottie-react";
 import registerLottie from "../../assets/Lotties/register.json";
@@ -8,6 +8,10 @@ import { toast } from "react-toastify";
 
 const Register = () => {
    const {createUser,updateUserProfile}= use(AuthContext)
+   const location =useLocation();
+   const navigate = useNavigate();
+   const from =location.state || '/';
+  
 const handleRegister = e => {
   e.preventDefault();
   const form = e.target;
@@ -32,13 +36,17 @@ const handleRegister = e => {
     .then(result => {
       const user = result.user;
        console.log(user);
+       
       // update profile with name and photo
       updateUserProfile({
         displayName: name,
         photoURL: photo
       }).then(() => {
         toast.success("Your Account created successfully!");
+        
         form.reset();
+        navigate(from)
+        
       }).catch(error => {
         toast.error(`Profile update failed: ${error.message}`);
       });

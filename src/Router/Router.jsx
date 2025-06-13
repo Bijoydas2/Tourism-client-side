@@ -10,6 +10,8 @@ import About from "../Page/About-us/About";
 import Login from "../Page/Login/Login";
 import Register from "../Page/Register/Register";
 import Error from "../Page/404-Not-found/Error";
+import PrivateRoute from "../Route/PrivateRoute";
+import PackageBook from "../PackageBook/PackageBook";
 
 
 
@@ -30,19 +32,26 @@ export const router = createBrowserRouter([
         {
             path:'/packages/:id',
             loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`),
-            Component:PackageDetails
+            element:<PrivateRoute><PackageDetails/></PrivateRoute>
         },
         {
-            path:'/add-package',
-            Component:AddPackage
+            path:'/addPackage',
+            element:<PrivateRoute><AddPackage/></PrivateRoute>
         },
         {
-            path:'/my-packages',
-            Component:ManageMyPackages
+            path:'/managePackages',
+            element:<PrivateRoute><ManageMyPackages/></PrivateRoute>
+        },
+        {  
+            path:'/booking/:id',
+            loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`),
+            element:<PrivateRoute><PackageBook/></PrivateRoute>,
+            
+
         },
         {
-            path:'/my-bookings',
-            Component:MyBooking
+            path:'/myBookings',
+            element:<PrivateRoute><MyBooking/></PrivateRoute>
         },
         {
             path:'/about',
