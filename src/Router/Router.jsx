@@ -12,6 +12,7 @@ import Register from "../Page/Register/Register";
 import Error from "../Page/404-Not-found/Error";
 import PrivateRoute from "../Route/PrivateRoute";
 import PackageBook from "../PackageBook/PackageBook";
+import UpdatePackage from "../Page/Manage-my-packages/UpdatePackge";
 
 
 
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
         {
             path:'/managePackages',
             element:<PrivateRoute><ManageMyPackages/></PrivateRoute>
+        },
+        {
+            path:'/updatePackage/:id',
+            element:<PrivateRoute><UpdatePackage/></PrivateRoute>
         },
         {  
             path:'/booking/:id',

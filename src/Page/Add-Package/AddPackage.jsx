@@ -60,7 +60,7 @@ const AddPackage = () => {
         </div>
 
         <div>
-          <label className="block font-medium mb-1">Duration</label>
+          <label className="block font-medium mb-1">Duration (e.g., 3 Days 2 Nights)</label>
           <div className="flex gap-4">
             <input type="number" name="days" placeholder="Days" className="w-full p-2 border rounded" required />
             <input type="number" name="nights" placeholder="Nights" className="w-full p-2 border rounded" required />

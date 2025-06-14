@@ -16,7 +16,7 @@ const FeaturedPackages = ({ feauturedPackagesPromise }) => {
       </div>
         <div className="flex justify-center mt-10">
         <Link to="/Packages">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
+          <button className="btn bg-blue-600 text-white hover:bg-white hover:text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg transition duration-300">
             Show All
           </button>
         </Link>
