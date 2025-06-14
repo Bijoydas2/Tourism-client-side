@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { use } from 'react';
+import { toast } from 'react-toastify';
 
 const BookingList = ({ myBookingsPromise,onConfirmed }) => {
   const bookings = use(myBookingsPromise);
@@ -12,7 +13,8 @@ const BookingList = ({ myBookingsPromise,onConfirmed }) => {
   const handleConfirm = async (id) => {
     const res = await axios.patch(`http://localhost:3000/bookings/${id}`);
     if (res.status === 200) {
-      onConfirmed();  
+      onConfirmed(); 
+      toast.success('Booking confirmed successfully!')
     }
   };
 

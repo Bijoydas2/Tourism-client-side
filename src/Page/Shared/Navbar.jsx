@@ -4,9 +4,12 @@ import logo from '../../assets/logo.png';
 import { AuthContext } from '../../Context/Context';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import { ThemeContext } from '../../Context/ThemeContext';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
 const Navbar = () => {
   const { user, SignOut } = use(AuthContext);
+  const { theme, toggleTheme } = use(ThemeContext);
 
   const handleSignOut = () => {
     SignOut()
@@ -107,6 +110,13 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
+        <button
+           onClick={toggleTheme}
+           className="text-2xl p-2 hover:bg-gray-200 rounded-full  transition "
+           aria-label="Toggle Theme"
+          >
+         {theme === 'light' ? <FiMoon className='text-slate-400' /> : <FiSun className='text-amber-500'/>}
+      </button>
         {!user ? (
           <NavLink
             to="/login"
