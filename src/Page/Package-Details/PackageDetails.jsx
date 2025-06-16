@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import React, { use, useEffect, useState } from 'react';
+import { Link, useParams, } from 'react-router';
 import { FaClock, FaDollarSign, FaUser,FaPhone,FaMapMarkerAlt, FaCalendarAlt, FaClipboardList, FaUsers, FaMapMarkedAlt, FaInfoCircle
 } from 'react-icons/fa';
+import { AuthContext } from '../../Context/Context';
 
 const iconStyle = {
   fontSize: '1.2rem',
@@ -10,11 +11,32 @@ const iconStyle = {
 };
 
 const PackageDetails = () => {
-  const pkg = useLoaderData();
+  const {user}= use(AuthContext)
+  console.log(user.accessToken)
+  const { id } = useParams();
+  const [pkg, setPkg] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  if (!pkg) return <div className="text-center py-20">Package not found.</div>;
+ useEffect(() => {
+    fetch(`http://localhost:3000/packages/${id}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setPkg(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [id, user]);
 
-  return (
+   if (loading) return <div className="text-center py-20">Loading package details...</div>;
+   
+   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-xl my-4">
       <img
         src={pkg.image}
@@ -51,8 +73,8 @@ const PackageDetails = () => {
         <p className="flex items-center gap-2 text-cyan-600">
           <FaInfoCircle style={{ ...iconStyle, color: '#0891B2' }} /> <strong>Description:</strong> {pkg.package_details}
         </p>
-        <p className="flex items-center gap-2 text-pink-600">
-          <FaUsers style={{ ...iconStyle, color: '#DB2777' }} /> <strong>Booking Count:</strong> {pkg.bookingCount || 0}
+          <p className="text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-pink-700 px-4 py-2 rounded inline-block mt-2 shadow-md">
+          <FaUsers className="inline mr-2" /> {pkg.bookingCount || 0} people booked this tour
         </p>
         <p className="flex items-center gap-2 text-indigo-600">
           <FaMapMarkerAlt style={{ ...iconStyle, color: '#4F46E5' }} /> <strong>Departure:</strong> {pkg.departure_location || 'N/A'}

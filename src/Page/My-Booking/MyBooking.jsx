@@ -9,11 +9,12 @@ import { AuthContext } from '../../Context/Context';
 const MyBooking = () => {
     const {user}=use(AuthContext);
     const [refreshIndex, setRefreshIndex] = useState(0);
-      const promise = myBookingsPromise(user.email, refreshIndex);
+      const promise = myBookingsPromise(user.email,user.accessToken, refreshIndex);
    
+      
     return (
         <div>
-            
+    
             <Suspense fallback={<Loading/>}>
                 <BookingList
                 myBookingsPromise={promise}

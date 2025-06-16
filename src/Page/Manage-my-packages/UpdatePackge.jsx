@@ -12,7 +12,11 @@ const UpdatePackage = () => {
   const [pkg, setPkg] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/packages/${id}`)
+    axios.get(`http://localhost:3000/packages/${id}`,{
+    headers: {
+      Authorization: `Bearer ${user.accessToken}`
+    }
+  })
       .then(res => setPkg(res.data))
       .catch(err => toast.error("There was a problem loading the package",err));
   }, [id]);
@@ -40,7 +44,16 @@ const UpdatePackage = () => {
       guide_contact_no: data.contactNo,
     };
 
-    axios.patch(`http://localhost:3000/packages/${id}`, updatedPackage)
+    axios.patch(
+   `http://localhost:3000/packages/${id}?email=${user.email}`,
+    updatedPackage,
+   {
+    headers: {
+      Authorization: `Bearer ${user.accessToken}`
+    }
+   }
+  )
+
       .then(res => {
         if (res.data.modifiedCount > 0) {
           toast.success('Tour Package Updated     Successfully!');

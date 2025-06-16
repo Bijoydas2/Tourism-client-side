@@ -17,7 +17,7 @@ const iconStyle = {
 const AllPackages = () => {
   const [searchText, setSearchText] = useState('');
   const [packages, setPackages] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // loader state
+  const [isLoading, setIsLoading] = useState(true); 
 
   const fetchPackages = (query = '') => {
     setIsLoading(true);
@@ -90,15 +90,15 @@ const AllPackages = () => {
 
               <p className="mt-2 flex items-center text-purple-600">
                 <FaClock style={{ ...iconStyle, color: '#7C3AED' }} />{' '}
-                <strong>Duration:</strong> {pkg.duration}
+                <strong>Duration: </strong> {pkg.duration}
               </p>
               <p className="flex items-center text-indigo-600">
                 <FaCalendarAlt style={{ ...iconStyle, color: '#4F46E5' }} />{' '}
-                <strong>Departure:</strong> {pkg.departure_date}
+                <strong>Departure: </strong> {pkg.departure_date}
               </p>
               <p className="flex items-center text-red-600">
                 <FaDollarSign style={{ ...iconStyle, color: '#DC2626' }} />{' '}
-                <strong>Price:</strong> ${pkg.price}
+                <strong>Price: </strong> ${pkg.price}
               </p>
 
               <Link

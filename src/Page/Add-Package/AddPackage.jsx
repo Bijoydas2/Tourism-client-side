@@ -33,17 +33,24 @@ const AddPackage = () => {
       created_at: newDate,
     };
     // saved package
-    axios.post('http://localhost:3000/packages',newPackage)
-    .then(res=>{
-         if (res.data.insertedId) {
-        toast.success('Tour Package Added Successfully!');
-        
-      }
-    })
-    .catch(error=>{
-         toast.error('Failed to add package. Try again.');
-      console.error(error);
-    })
+    axios.post(
+  `http://localhost:3000/packages?email=${user.email}`,
+  newPackage,
+  {
+    headers: {
+      Authorization: `Bearer ${user.accessToken}`
+    }
+  }
+ )
+   .then(res => {
+   if (res.data.insertedId) {
+    toast.success('Tour Package Added Successfully!');
+   }
+   })
+   .catch(error => {
+   toast.error('Failed to add package. Try again.');
+   console.error(error);
+   });
     }
     return (
            <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded mt-8">

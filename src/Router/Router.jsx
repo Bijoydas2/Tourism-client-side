@@ -32,7 +32,6 @@ export const router = createBrowserRouter([
         },
         {
             path:'/packages/:id',
-            loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`),
             element:<PrivateRoute><PackageDetails/></PrivateRoute>
         },
         {

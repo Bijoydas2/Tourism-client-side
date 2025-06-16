@@ -3,9 +3,11 @@ import React, { use } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Context/Context';
 
 const PackageList = ({packageCreatedPromise,onConfirmed}) => {
     const packages = use(packageCreatedPromise);
+    const {user} = use(AuthContext);
 
     
   const handleDelete = async (id) => {
@@ -20,7 +22,11 @@ const PackageList = ({packageCreatedPromise,onConfirmed}) => {
     });
 
     if (confirm.isConfirmed) {
-      const res = await axios.delete(`http://localhost:3000/packages/${id}`);
+     const res = await axios.delete(`http://localhost:3000/packages/${id}?email=${user.email}`, {
+     headers: {
+     Authorization: `Bearer ${user.accessToken}`
+     }
+    });
       if (res.data.deletedCount > 0) {
         Swal.fire('Deleted!', 'The package has been deleted.', 'success');
         onConfirmed();

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
+import img from '../../assets/banner2.jpg'
 
 const About = () => {
   return (
@@ -9,7 +10,7 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
           <img
-            src="https://i.ibb.co/ZzVQdJqW/photo-1502920514313-52581002a659.jpg"
+            src={img}
             alt="About our tours"
             className="w-full h-96 object-cover rounded-xl shadow-md"
           />

@@ -1,17 +1,20 @@
 import axios from 'axios';
 import React, { use } from 'react';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../../Context/Context';
 
 const BookingList = ({ myBookingsPromise,onConfirmed }) => {
   const bookings = use(myBookingsPromise);
-
-
-
-
+  const {user} = use(AuthContext)
 
  
   const handleConfirm = async (id) => {
-    const res = await axios.patch(`http://localhost:3000/bookings/${id}`);
+    const res = await axios.patch(`http://localhost:3000/bookings/${id}`, 
+    {}, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      });
     if (res.status === 200) {
       onConfirmed(); 
       toast.success('Booking confirmed successfully!')

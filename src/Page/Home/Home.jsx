@@ -4,7 +4,7 @@ import FeaturedPackages from './featuredPackages';
 import Loading from '../Shared/Loading';
 
 const Home = () => {
-    const feauturedPackagesPromise= fetch('http://localhost:3000/featured-packages').then(res=> res.json());
+    const feauturedPackagesPromise= fetch('http://localhost:3000/featuredPackages').then(res=> res.json());
     return (
         <div>
             <HeroBanner></HeroBanner>

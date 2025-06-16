@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
+import banner from "../../assets/banner.jpg"
 
 const HeroBanner = () => {
   return (
@@ -8,8 +9,7 @@ const HeroBanner = () => {
       <motion.div
         className="absolute inset-0 bg-center bg-cover"
         style={{
-          backgroundImage:
-            "url('https://i.ibb.co/GfW031p4/full-shot-travel-concept-with-landmarks.jpg')",
+          backgroundImage: `url(${banner})`,
           zIndex: 0,
         }}
         animate={{

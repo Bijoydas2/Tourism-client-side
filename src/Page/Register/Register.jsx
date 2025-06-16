@@ -15,10 +15,10 @@ const Register = () => {
 const handleRegister = e => {
   e.preventDefault();
   const form = e.target;
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
+  const name = form.name.value;
+  const email = form.email.value;
   const password = form.password.value;
-  const photo = form.photoURL.value.trim();
+  const photo = form.photoURL.value;
 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 

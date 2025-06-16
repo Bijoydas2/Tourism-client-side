@@ -9,6 +9,7 @@ import { FiMoon, FiSun } from 'react-icons/fi';
 
 const Navbar = () => {
   const { user, SignOut } = use(AuthContext);
+  console.log(user)
   const { theme, toggleTheme } = use(ThemeContext);
 
   const handleSignOut = () => {
@@ -112,7 +113,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <button
            onClick={toggleTheme}
-           className="text-2xl p-2 hover:bg-gray-200 rounded-full  transition "
+           className="text-2xl p-2 m-2 hover:bg-gray-200 rounded-full  transition "
            aria-label="Toggle Theme"
           >
          {theme === 'light' ? <FiMoon className='text-slate-400' /> : <FiSun className='text-amber-500'/>}
@@ -149,11 +150,12 @@ const Navbar = () => {
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-white rounded-box w-52 mt-3"
+              className="dropdown-content menu p-2 shadow bg-white rounded-box w-52 mt-20"
             >
               <li className="px-3 py-2 font-semibold text-gray-700 truncate">
                 {user.displayName || 'User'}
               </li>
+              
               <li>
                 <NavLink to="/addPackage" className="hover:text-blue-600 px-3 py-2 rounded">
                   Add Package

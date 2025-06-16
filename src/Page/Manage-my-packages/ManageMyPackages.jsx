@@ -7,7 +7,7 @@ import { packageCreatedPromise } from '../../api/packageApi';
 const ManageMyPackages = () => {
     const { user } = use(AuthContext);
      const [refreshIndex, setRefreshIndex] = useState(0);
-   const promise = packageCreatedPromise(user.email, refreshIndex);
+   const promise = packageCreatedPromise(user.email, user.accessToken, refreshIndex);
 
     return (
         <div>
