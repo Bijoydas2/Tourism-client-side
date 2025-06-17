@@ -22,7 +22,7 @@ const PackageList = ({packageCreatedPromise,onConfirmed}) => {
     });
 
     if (confirm.isConfirmed) {
-     const res = await axios.delete(`http://localhost:3000/packages/${id}?email=${user.email}`, {
+     const res = await axios.delete(`https://package-booking-server.vercel.app/packages/${id}?email=${user.email}`, {
      headers: {
      Authorization: `Bearer ${user.accessToken}`
      }

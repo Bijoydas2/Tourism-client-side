@@ -14,7 +14,7 @@ const MyBooking = () => {
       
     return (
         <div>
-    
+          <title>My Booking</title>
             <Suspense fallback={<Loading/>}>
                 <BookingList
                 myBookingsPromise={promise}

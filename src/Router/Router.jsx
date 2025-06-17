@@ -45,10 +45,11 @@ export const router = createBrowserRouter([
         {
             path:'/updatePackage/:id',
             element:<PrivateRoute><UpdatePackage/></PrivateRoute>
+        
+            
         },
         {  
             path:'/booking/:id',
-            loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`),
             element:<PrivateRoute><PackageBook/></PrivateRoute>,
             
 

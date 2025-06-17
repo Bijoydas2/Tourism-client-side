@@ -1,12 +1,75 @@
-# React + Vite
+toreMate
+ToreMate is a complete tour management and booking platform where both guides and travelers can connect. Guides can add tour packages, and users can easily book their desired tours.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ Live Site :https://package-code.web.app/
+ 
 
-Currently, two official plugins are available:
+⚙️ Technologies Used
+ Frontend:
+React.js (with Vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Router 
 
-## Expanding the ESLint configuration
+Firebase Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tailwind CSS
+
+DaisyUI
+
+React Icons
+
+React Helmet Async
+
+SweetAlert2
+
+Toastify
+
+Axios
+
+React Motion
+
+
+
+Backend:
+
+
+Express.js
+
+MongoDB (MongoClient)
+
+Firebase Admin SDK (for token verification)
+
+Authentication Features
+
+Firebase Email/Password Signup & Login
+
+Google Sign-In
+
+Protected Routes (Frontend)
+
+Firebase Token Verification (Backend middleware)
+ Features
+ For Travelers:
+Browse all tour packages
+
+Search & filter packages
+
+View package details
+
+Book a package (with login)
+
+ For Guides:
+Add new tour packages
+
+See only their own packages (My Packages)
+
+Update & Delete own packages
+
+Firebase token protected API calls
+
+API Security
+Backend routes are secured using Firebase Admin SDK.
+
+Only authenticated users can access protected API endpoints.
+
+Authorization is verified via token & email.

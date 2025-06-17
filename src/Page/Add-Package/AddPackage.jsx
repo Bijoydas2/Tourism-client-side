@@ -34,7 +34,7 @@ const AddPackage = () => {
     };
     // saved package
     axios.post(
-  `http://localhost:3000/packages?email=${user.email}`,
+  `https://package-booking-server.vercel.app/packages?email=${user.email}`,
   newPackage,
   {
     headers: {
@@ -54,6 +54,7 @@ const AddPackage = () => {
     }
     return (
            <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded mt-8">
+        <title>Add Packages</title>
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">Add Tour Package</h2>
       <form onSubmit={handleAddTour} className="space-y-4">
         <div>

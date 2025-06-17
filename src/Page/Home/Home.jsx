@@ -2,15 +2,20 @@ import React, { Suspense } from 'react';
 import HeroBanner from '../Shared/HeroBanner';
 import FeaturedPackages from './featuredPackages';
 import Loading from '../Shared/Loading';
+import PhotoGallery from './PhotoGallery';
+import Testimonial from './Testimonials';
 
 const Home = () => {
-    const feauturedPackagesPromise= fetch('http://localhost:3000/featuredPackages').then(res=> res.json());
+    const feauturedPackagesPromise= fetch('https://package-booking-server.vercel.app/featuredPackages').then(res=> res.json());
     return (
         <div>
+            <title>Feauture Tour</title>
             <HeroBanner></HeroBanner>
            <Suspense fallback={<Loading/>}>
              <FeaturedPackages feauturedPackagesPromise={feauturedPackagesPromise}></FeaturedPackages>
            </Suspense>
+           <PhotoGallery/>
+           <Testimonial/>
         </div>
     );
 };

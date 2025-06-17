@@ -21,7 +21,7 @@ const AllPackages = () => {
 
   const fetchPackages = (query = '') => {
     setIsLoading(true);
-    fetch(`http://localhost:3000/packages?search=${query}`)
+    fetch(`https://package-booking-server.vercel.app/packages?search=${query}`)
       .then((res) => res.json())
       .then((data) => {
         setPackages(data);
@@ -41,6 +41,7 @@ const AllPackages = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
+      <title>All Tour Packages</title>
       <h2 className="text-4xl font-bold text-blue-700 text-center mb-6">
         All Tour Packages
       </h2>

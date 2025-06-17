@@ -12,7 +12,7 @@ const UpdatePackage = () => {
   const [pkg, setPkg] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/packages/${id}`,{
+    axios.get(`https://package-booking-server.vercel.app/packages/${id}`,{
     headers: {
       Authorization: `Bearer ${user.accessToken}`
     }
@@ -45,7 +45,7 @@ const UpdatePackage = () => {
     };
 
     axios.patch(
-   `http://localhost:3000/packages/${id}?email=${user.email}`,
+   `https://package-booking-server.vercel.app/packages/${id}?email=${user.email}`,
     updatedPackage,
    {
     headers: {
@@ -72,6 +72,7 @@ const UpdatePackage = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded mt-8">
+      <title>Updated Package</title>
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">Update Tour Package</h2>
       <form onSubmit={handleUpdateTour} className="space-y-4">
 

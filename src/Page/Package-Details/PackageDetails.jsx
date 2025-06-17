@@ -18,7 +18,7 @@ const PackageDetails = () => {
   const [loading, setLoading] = useState(true);
 
  useEffect(() => {
-    fetch(`http://localhost:3000/packages/${id}`, {
+    fetch(`https://package-booking-server.vercel.app/packages/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -35,9 +35,10 @@ const PackageDetails = () => {
   }, [id, user]);
 
    if (loading) return <div className="text-center py-20">Loading package details...</div>;
-   
+    if (!pkg) return <div className="text-center py-20 text-red-500">Package not found.</div>;
    return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-xl my-4">
+       <title>Tour Detailas</title>
       <img
         src={pkg.image}
         alt={pkg.tour_name}

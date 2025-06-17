@@ -5,6 +5,7 @@ import img from '../../assets/banner2.jpg'
 const About = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
+      <title>About</title>
       <h1 className="text-4xl font-bold text-blue-700 text-center mb-8">About Us</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">

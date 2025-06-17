@@ -9,7 +9,7 @@ const BookingList = ({ myBookingsPromise,onConfirmed }) => {
 
  
   const handleConfirm = async (id) => {
-    const res = await axios.patch(`http://localhost:3000/bookings/${id}`, 
+    const res = await axios.patch(`https://package-booking-server.vercel.app/bookings/${id}`, 
     {}, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,

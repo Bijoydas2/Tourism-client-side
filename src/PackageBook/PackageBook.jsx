@@ -13,7 +13,7 @@ const PackageBook = () => {
   useEffect(() => {
     if (!user?.accessToken) return;
 
-    axios.get(`http://localhost:3000/packages/${pkgId}`, {
+    axios.get(`https://package-booking-server.vercel.app/packages/${pkgId}`, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`
       }
@@ -49,7 +49,7 @@ const PackageBook = () => {
       status: 'pending'
     };
 
-    axios.post('http://localhost:3000/bookings', bookingInfo,{
+    axios.post('https://package-booking-server.vercel.app/bookings', bookingInfo,{
         headers: {
             Authorization: `Bearer ${user.accessToken}`
         }
@@ -79,6 +79,7 @@ const PackageBook = () => {
 
   return (
     <div className="max-w-xl mx-auto p-6 shadow-lg rounded-lg bg-white mt-10">
+      <title>Package Book</title>
       <h3 className="text-3xl font-bold mb-6 text-blue-700 text-center">Book Now</h3>
       <form onSubmit={handleBookSubmit} className="space-y-4">
         <div>

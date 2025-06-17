@@ -11,6 +11,7 @@ const ManageMyPackages = () => {
 
     return (
         <div>
+            <title>Mannage Package</title>
             <Suspense fallback={<p className="text-center mt-10 text-blue-500">Loading packages...</p>}>
                 <PackageList packageCreatedPromise={promise} 
                 onConfirmed={() => setRefreshIndex((prev) => prev + 1)}
