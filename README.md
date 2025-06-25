@@ -1,75 +1,49 @@
-toreMate
-ToreMate is a complete tour management and booking platform where both guides and travelers can connect. Guides can add tour packages, and users can easily book their desired tours.
+# 🧳 Toremate Website
 
- Live Site :https://package-code.web.app/
- 
+A feature-rich MERN Stack Tourism Website where users can explore travel packages, make bookings, and manage their profile. Admins or guides can add, edit, or delete packages with secure authentication.
 
-⚙️ Technologies Used
- Frontend:
-React.js (with Vite)
+## 🌍 Live Demo
 
-React Router 
+🔗 [Live Site](https://package-code.web.app)  
+🔗 [Backend API](https://package-booking-server.vercel.app)
 
-Firebase Authentication
+## 🖼️ Screenshot
 
-Tailwind CSS
+![Tourism Website Screenshot](https://i.ibb.co/SjX1g0g/Capture.png)
 
-DaisyUI
+## 🚀 Features
 
-React Icons
+- 🔍 Browse tour packages by category, location, or name  
+- 🧾 Package details page with reservation button  
+- 🔐 Firebase Authentication (Login/Register)  
+- 🧑‍💼 Role-based access (User, Guide)  
+- 🗂️ Guide Dashboard for managing own packages  
+- 💬 SweetAlert and Toast notifications  
+- 📱 Fully responsive on all devices  
 
-React Helmet Async
+## 🛠️ Tech Stack
 
-SweetAlert2
+### Frontend
 
-Toastify
+- React  
+- React Router  
+- Firebase Authentication  
+- Tailwind CSS + DaisyUI  
+- Axios, React Hook Form  
 
-Axios
+### Backend
 
-React Motion
+- Node.js  
+- Express.js  
+- MongoDB (via MongoDB Atlas)  
+- Firebase Admin SDK (Token verification)  
+- CORS, dotenv, jsonwebtoken  
 
+## 📦 Dependencies
 
+```bash
+# Frontend
+react, react-router-dom, firebase, axios, react-hook-form, sweetalert2, react-toastify
 
-Backend:
-
-
-Express.js
-
-MongoDB (MongoClient)
-
-Firebase Admin SDK (for token verification)
-
-Authentication Features
-
-Firebase Email/Password Signup & Login
-
-Google Sign-In
-
-Protected Routes (Frontend)
-
-Firebase Token Verification (Backend middleware)
- Features
- For Travelers:
-Browse all tour packages
-
-Search & filter packages
-
-View package details
-
-Book a package (with login)
-
- For Guides:
-Add new tour packages
-
-See only their own packages (My Packages)
-
-Update & Delete own packages
-
-Firebase token protected API calls
-
-API Security
-Backend routes are secured using Firebase Admin SDK.
-
-Only authenticated users can access protected API endpoints.
-
-Authorization is verified via token & email.
+# Backend
+express, mongodb, cors, dotenv, jsonwebtoken, firebase-admin
