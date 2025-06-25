@@ -9,7 +9,7 @@ A feature-rich MERN Stack Tourism Website where users can explore travel package
 
 ## 🖼️ Screenshot
 
-![Tourism Website Screenshot](https://i.ibb.co/SjX1g0g/Capture.png)
+![Tourism Website Screenshot](https://i.ibb.co/5gFZVLDs/Capture.png)
 
 ## 🚀 Features
 
