@@ -23,62 +23,75 @@ const Navbar = () => {
   };
 
   const navLinks = (
-    <>
+  <>
+    <li>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+            : "hover:text-blue-500 text-gray-800 transition-colors duration-300"
+        }
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/packages"
+        className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+            : "hover:text-blue-500 text-gray-800 transition-colors duration-300"
+        }
+      >
+        All Packages
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+            : "hover:text-blue-500 text-gray-800 transition-colors duration-300"
+        }
+      >
+        About Us
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          isActive
+            ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+            : "hover:text-blue-500 text-gray-800 transition-colors duration-300"
+        }
+      >
+        Contact
+      </NavLink>
+    </li>
+    {user && (
       <li>
         <NavLink
-          to="/"
+          to="/myBookings"
           className={({ isActive }) =>
             isActive
               ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-              : "hover:text-blue-500 transition-colors duration-300"
+              : "hover:text-blue-500 text-gray-800 transition-colors duration-300"
           }
         >
-          Home
+          My Bookings
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/packages"
-          className={({ isActive }) =>
-            isActive
-              ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-              : "hover:text-blue-500 transition-colors duration-300"
-          }
-        >
-          All Packages
-        </NavLink>
-      </li>
-      {user && (
-        <li>
-          <NavLink
-            to="/myBookings"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-                : "hover:text-blue-500 transition-colors duration-300"
-            }
-          >
-            My Bookings
-          </NavLink>
-        </li>
-      )}
-      <li>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive
-              ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-              : "hover:text-blue-500 transition-colors duration-300"
-          }
-        >
-          About Us
-        </NavLink>
-      </li>
-    </>
-  );
+    )}
+  </>
+);
+
 
   return (
-    <div className="navbar bg-white shadow-md">
+    <div className="navbar bg-blue-50 shadow-md sticky top-0 z-50 px-4">
       <div className="navbar-start">
         {/* Mobile menu button */}
         <div className="dropdown">
@@ -99,13 +112,13 @@ const Navbar = () => {
 
         {/* Logo */}
         <NavLink to="/" className="btn btn-ghost normal-case text-2xl text-blue-700 font-bold flex items-center gap-1">
-          <img src={logo} alt="logo" className="w-10 h-10 mr-1 " />
-          TourMate
+          <img src={logo} alt="logo" className="w-8 h-8 mr-1 " />
+          Tourmate
         </NavLink>
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-6 text-lg">
+        <ul className="menu menu-horizontal px-1 gap-2 text-sm">
           {navLinks}
         </ul>
       </div>
@@ -121,7 +134,7 @@ const Navbar = () => {
         {!user ? (
           <NavLink
             to="/login"
-            className="btn btn-outline btn-blue-600 btn-sm rounded hover:bg-blue-600 hover:text-white transition duration-300"
+            className="btn btn-outline bg-blue-700 text-white btn-sm rounded hover:bg-blue-800 hover:text-white transition duration-300"
           >
             Login
           </NavLink>
@@ -157,13 +170,13 @@ const Navbar = () => {
               </li>
               
               <li>
-                <NavLink to="/addPackage" className="hover:text-blue-600 px-3 py-2 rounded">
+                <NavLink to="/addPackage" className="hover:text-blue-600 text-gray-800   px-3 py-2 rounded">
                   Add Package
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/managePackages" className="hover:text-blue-600 px-3 py-2 rounded">
-                  Manage My Packages
+                <NavLink to="/managePackages" className="hover:text-blue-600 text-gray-800  px-3 py-2 rounded">
+                  My All Packages
                 </NavLink>
               </li>
               <li>

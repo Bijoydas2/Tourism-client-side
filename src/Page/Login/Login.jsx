@@ -46,29 +46,29 @@ const Login = () => {
                 <Lottie animationData={loginLottie} loop={true} />;
              </div>
             <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
-                <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Login</h2>
+                <h2 className="text-4xl font-bold text-center text-blue-600 mb-6">Login</h2>
 
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium mb-1" htmlFor="email">Email</label>
+                        <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="email">Email</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
                             placeholder='Enter Your Email'
                             required
-                            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
                     <div className="mb-6">
-                        <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                        <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="password">Password</label>
                         <input
                             type="password"
                             id="password"
                             name="password"
                             placeholder='Correct Password'
                             required
-                            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
                     <button
@@ -82,7 +82,7 @@ const Login = () => {
               <SocailLogin from={from}></SocailLogin>
 
                 <div className="mt-6 text-center">
-                    <p className="text-sm">
+                    <p className="text-sm text-gray-500">
                         Don't have an account?{' '}
                         <Link to="/register" className="text-blue-600 hover:underline">
                             Register here

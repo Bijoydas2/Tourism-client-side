@@ -71,49 +71,49 @@ const handleRegister = e => {
                 <form onSubmit={handleRegister}>
                     
                     <div className="mb-4">
-                        <label className="block text-sm font-medium mb-1" htmlFor="name">Full Name</label>
+                        <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="name">Full Name</label>
                         <input
                             type="text"
                             name="name"
                             id="name"
                             placeholder="Enter Your Name"
-                            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 text-gray-700 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
 
                     
                     <div className="mb-4">
-                        <label className="block text-sm font-medium mb-1" htmlFor="email">Email</label>
+                        <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="email">Email</label>
                         <input
                             type="email"
                             name="email"
                             id="email"
                             placeholder="Enter Your Email"
-                            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 text-gray-700 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
 
                    
                     <div className="mb-4">
-                        <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                        <label className="block text-sm  text-gray-700 font-medium mb-1" htmlFor="password">Password</label>
                         <input
                             type="password"
                             name="password"
                             id="password"
                             placeholder="Password"
-                            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
-                        <p className="text-xs text-gray-500 mt-1">Min 6 chars, 1 uppercase, 1 lowercase</p>
+                        <p className="text-xs text-red-500 mt-1">Min 6 chars, 1 uppercase, 1 lowercase</p>
                     </div>
 
                     <div className="mb-6">
-                        <label className="block text-sm font-medium mb-1" htmlFor="photoURL">Photo URL</label>
+                        <label className="block text-sm text-gray-700 font-medium mb-1" htmlFor="photoURL">Photo URL</label>
                         <input
                             type="text"
                             name="photoURL"
                             id="photoURL"
                             placeholder="Photo URL"
-                            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                     </div>
 
@@ -131,7 +131,7 @@ const handleRegister = e => {
 
               
                 <div className="mt-6 text-center">
-                    <p className="text-sm">
+                    <p className="text-sm text-gray-700">
                         Already have an account?{' '}
                         <Link to="/login" className="text-blue-600 hover:underline">
                             Login here

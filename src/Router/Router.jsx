@@ -13,6 +13,7 @@ import Error from "../Page/404-Not-found/Error";
 import PrivateRoute from "../Route/PrivateRoute";
 import PackageBook from "../PackageBook/PackageBook";
 import UpdatePackage from "../Page/Manage-my-packages/UpdatePackge";
+import Contact from "../Page/Contact/Contact";
 
 
 
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
             path:'/register',
             Component:Register
         },
+        {
+            path: '/contact',
+            Component:Contact
+        }
     ]
   },
   {

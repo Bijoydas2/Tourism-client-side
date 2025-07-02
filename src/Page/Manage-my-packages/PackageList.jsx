@@ -38,8 +38,8 @@ const PackageList = ({packageCreatedPromise,onConfirmed}) => {
 
    
     return (
-          <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">My Packages</h2>
+          <div className="py-10 max-w-7xl mx-auto">
+      <h2 className="text-4xl text-blue-700 font-bold mb-4">My Packages</h2>
       <div className="overflow-x-auto">
         <table className="table w-full bg--400 shadow-4xl rounded-2xl">
           <thead className="bg-blue-100 text-blue-700">

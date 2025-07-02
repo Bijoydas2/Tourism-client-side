@@ -4,7 +4,7 @@ import img from '../../assets/banner2.jpg'
 
 const About = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className="max-w-6xl mx-auto px-4 py-10">
       <title>About</title>
       <h1 className="text-4xl font-bold text-blue-700 text-center mb-8">About Us</h1>
 
@@ -17,7 +17,7 @@ const About = () => {
           />
         </div>
 
-        <div className="text-gray-700 space-y-4">
+        <div className="text-gray-400 space-y-4">
           <p className="text-lg leading-relaxed">
             Welcome to <span className="font-semibold text-blue-600">ExploreVista</span> – your trusted platform for discovering unforgettable travel experiences. Whether you're a solo adventurer, family vacationer, or group explorer, we connect you with passionate local guides and exciting tour packages tailored to your interests.
           </p>

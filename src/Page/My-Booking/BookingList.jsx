@@ -46,16 +46,16 @@ const BookingList = ({ myBookingsPromise,onConfirmed }) => {
               key={booking._id}
               className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
             >
-              <td className="py-3 px-4">{booking.tour_name}</td>
-              <td className="py-3 px-4 whitespace-pre-line">
+              <td className="py-3 px-4 text-gray-700">{booking.tour_name}</td>
+              <td className="py-3 px-4 whitespace-pre-line text-gray-700">
                 {booking.guide_name}
                 <br />
                 {booking.guide_contact_no}
               </td>
-              <td className="py-3 px-4">{booking.departure_date}</td>
-              <td className="py-3 px-4">{booking.departure_location}</td>
-              <td className="py-3 px-4">{booking.destination}</td>
-              <td className="py-3 px-4">{booking.notes || '-'}</td>
+              <td className="py-3 px-4 text-gray-700">{booking.departure_date}</td>
+              <td className="py-3 px-4 text-gray-700">{booking.departure_location}</td>
+              <td className="py-3 px-4 text-gray-700">{booking.destination}</td>
+              <td className="py-3 px-4 text-gray-700">{booking.notes || '-'}</td>
               <td
                 className={`py-3 px-4 font-semibold ${
                   booking.status === 'completed'

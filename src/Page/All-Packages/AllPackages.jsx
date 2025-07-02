@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router'; 
 import {
   FaEye,
   FaClock,
@@ -17,26 +17,39 @@ const iconStyle = {
 const AllPackages = () => {
   const [searchText, setSearchText] = useState('');
   const [packages, setPackages] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Optional: sorting state
+  const [sortOption, setSortOption] = useState('');
 
   const fetchPackages = (query = '') => {
     setIsLoading(true);
     fetch(`https://package-booking-server.vercel.app/packages?search=${query}`)
       .then((res) => res.json())
       .then((data) => {
-        setPackages(data);
+        let sortedData = [...data];
+
+        if (sortOption === 'priceLowHigh') {
+          sortedData.sort((a, b) => a.price - b.price);
+        } else if (sortOption === 'priceHighLow') {
+          sortedData.sort((a, b) => b.price - a.price);
+        } else if (sortOption === 'durationShortLong') {
+          sortedData.sort((a, b) => a.duration - b.duration);
+        } else if (sortOption === 'durationLongShort') {
+          sortedData.sort((a, b) => b.duration - a.duration);
+        }
+
+        setPackages(sortedData);
         setIsLoading(false);
       });
   };
 
   useEffect(() => {
     fetchPackages();
-  }, []);
+  }, [sortOption]);
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearchText(value);
-    fetchPackages(value);
+  const handleSearch = () => {
+    fetchPackages(searchText);
   };
 
   return (
@@ -46,22 +59,45 @@ const AllPackages = () => {
         All Tour Packages
       </h2>
 
-      <div className="mb-6 text-center">
-        <input
-          type="text"
-          placeholder="Search by name or destination"
-          value={searchText}
-          onChange={handleSearch}
-          className="input input-bordered w-full md:w-1/2"
-        />
+      {/* Search and Sort */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+        <div className="flex w-full md:w-1/2 gap-2">
+          <input
+            type="text"
+            placeholder="Search by name or destination"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            className="input input-bordered w-full"
+          />
+          <button
+            onClick={handleSearch}
+            className="btn btn-primary"
+          >
+            Search
+          </button>
+        </div>
+
+        {/* Optional sort dropdown */}
+        <select
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+          className="select select-bordered w-full md:w-60"
+        >
+          <option value="">Sort by</option>
+          <option value="priceLowHigh">Price: Low to High</option>
+          <option value="priceHighLow">Price: High to Low</option>
+          <option value="durationShortLong">Duration: Short to Long</option>
+          <option value="durationLongShort">Duration: Long to Short</option>
+        </select>
       </div>
 
+      {/* Loading spinner */}
       {isLoading ? (
         <div className="flex justify-center items-center py-20">
           <span className="loading loading-spinner text-blue-600 w-16 h-16"></span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {packages.map((pkg) => (
             <div
               key={pkg._id}
@@ -84,22 +120,22 @@ const AllPackages = () => {
                   className="w-8 h-8 rounded-full"
                 />
                 <span className="text-green-600 flex items-center gap-1">
-                  <FaUser style={{ fontSize: '0.9rem', color: '#16A34A' }} />{' '}
+                  <FaUser style={{ fontSize: '0.9rem', color: '#16A34A' }} />
                   {pkg.guide_name}
                 </span>
               </div>
 
               <p className="mt-2 flex items-center text-purple-600">
-                <FaClock style={{ ...iconStyle, color: '#7C3AED' }} />{' '}
-                <strong>Duration: </strong> {pkg.duration}
+                <FaClock style={{ ...iconStyle, color: '#7C3AED' }} />
+                <strong> Duration: </strong> {pkg.duration}
               </p>
               <p className="flex items-center text-indigo-600">
-                <FaCalendarAlt style={{ ...iconStyle, color: '#4F46E5' }} />{' '}
-                <strong>Departure: </strong> {pkg.departure_date}
+                <FaCalendarAlt style={{ ...iconStyle, color: '#4F46E5' }} />
+                <strong> Departure: </strong> {pkg.departure_date}
               </p>
               <p className="flex items-center text-red-600">
-                <FaDollarSign style={{ ...iconStyle, color: '#DC2626' }} />{' '}
-                <strong>Price: </strong> ${pkg.price}
+                <FaDollarSign style={{ ...iconStyle, color: '#DC2626' }} />
+                <strong> Price: </strong> ${pkg.price}
               </p>
 
               <Link
