@@ -91,7 +91,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-blue-50 shadow-md sticky top-0 z-50 px-4">
+    <div className="navbar bg-blue-50 shadow-md sticky top-0 z-50 px-2">
       <div className="navbar-start">
         {/* Mobile menu button */}
         <div className="dropdown">
@@ -104,14 +104,14 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-white rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-1 z-[1] p-2 ml-0 shadow-lg bg-white rounded-box w-52"
           >
             {navLinks}
           </ul>
         </div>
 
         {/* Logo */}
-        <NavLink to="/" className="btn btn-ghost normal-case text-2xl text-blue-700 font-bold flex items-center gap-1">
+        <NavLink to="/" className=" text-2xl mr-2 text-blue-700 font-bold flex items-center gap-1">
           <img src={logo} alt="logo" className="w-8 h-8 mr-1 " />
           Tourmate
         </NavLink>
@@ -163,12 +163,17 @@ const Navbar = () => {
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-white rounded-box w-52 mt-20"
+              className="dropdown-content menu p-2  shadow bg-white rounded-box w-52 mt-30 right-0"
+              style={{ right: 0 }}
             >
-              <li className="px-3 py-2 font-semibold text-gray-700 truncate">
+              <li className="px-3 pt-2 font-semibold text-blue-600 truncate">
                 {user.displayName || 'User'}
               </li>
               
+              <li className="px-3  font-semibold text-gray-500 truncate">
+                {user.email || 'User'}
+              </li>
+              <li className='border-t-gray-700'></li>
               <li>
                 <NavLink to="/addPackage" className="hover:text-blue-600 text-gray-800   px-3 py-2 rounded">
                   Add Package
