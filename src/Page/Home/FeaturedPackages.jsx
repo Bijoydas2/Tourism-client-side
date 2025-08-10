@@ -6,7 +6,7 @@ const FeaturedPackages = ({ feauturedPackagesPromise }) => {
   const packages = use(feauturedPackagesPromise);
 
   return (
-    <section className=" mt-16 max-w-7xl mx-auto">
+    <section className=" mt-10 max-w-7xl mx-auto">
       <h2 className="text-4xl font-semibold mb-8 text-center text-blue-700">Featured Packages</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">

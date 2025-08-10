@@ -13,7 +13,7 @@ const PhotoGallery = () => {
   ];
 
   return (
-    <section className="mt-16 px-6 ">
+    <section className="mt-10 px-6 ">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-indigo-600 ">Travel Moments</h2>
         <p className="text-center text-gray-400 mb-8 max-w-xl mx-auto">

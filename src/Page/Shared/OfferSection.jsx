@@ -2,7 +2,7 @@ import React from 'react';
 
 const OfferSection = () => {
   return (
-    <section className=" mt-16 px-6">
+    <section className=" mt-10 px-6">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-extrabold text-blue-700 mb-4">Special Summer Offers!</h2>
         <p className="text-gray-400 mb-8 max-w-xl  mx-auto">
