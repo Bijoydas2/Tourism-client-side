@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         },
         {
             path:'/packages/:id',
-            element:<PrivateRoute><PackageDetails/></PrivateRoute>
+            element: <PackageDetails/>
         },
         {
             path:'/addPackage',

@@ -12,17 +12,13 @@ const iconStyle = {
 
 const PackageDetails = () => {
   const {user}= use(AuthContext)
-  console.log(user.accessToken)
+
   const { id } = useParams();
   const [pkg, setPkg] = useState(null);
   const [loading, setLoading] = useState(true);
 
  useEffect(() => {
-    fetch(`https://package-booking-server.vercel.app/packages/${id}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(`https://package-booking-server.vercel.app/packages/${id}`, )
       .then((res) => res.json())
       .then((data) => {
         setPkg(data);

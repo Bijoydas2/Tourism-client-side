@@ -103,7 +103,7 @@ const AllPackages = () => {
           {packages.map((pkg) => (
             <div
               key={pkg._id}
-              className="rounded-lg shadow-lg p-4 border border-blue-100 hover:shadow-xl transition duration-300"
+              className="rounded-lg shadow-lg p-4 border-none shodow hover:shadow-xl transition duration-300"
             >
               <img
                 src={pkg.image}
