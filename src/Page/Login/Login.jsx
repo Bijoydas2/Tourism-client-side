@@ -40,7 +40,7 @@ const Login = () => {
    }
 
     return (
-           <div className="min-h-screen flex flex-col md:flex-row items-center justify-center  bg-gradient-to-r from-green-100 to-blue-100 p-4">
+           <div className="min-h-screen flex flex-col md:flex-row items-center justify-center   p-4">
              <title>Login</title>
              <div className='max-w-xs w-full'>
                 <Lottie animationData={loginLottie} loop={true} />;
