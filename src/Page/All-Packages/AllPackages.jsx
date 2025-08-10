@@ -7,6 +7,7 @@ import {
   FaDollarSign,
   FaUser,
 } from 'react-icons/fa';
+import Loading from '../Shared/Loading';
 
 const iconStyle = {
   fontSize: '1rem',
@@ -60,7 +61,8 @@ const AllPackages = () => {
       </h2>
 
       {/* Search and Sort */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+      {/* Make sure overflow is visible to avoid clipping dropdown */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 overflow-visible">
         <div className="flex w-full md:w-1/2 gap-2">
           <input
             type="text"
@@ -77,25 +79,25 @@ const AllPackages = () => {
           </button>
         </div>
 
-        {/* Optional sort dropdown */}
-        <select
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-          className="select select-bordered w-full md:w-60"
-        >
-          <option value="">Sort by</option>
-          <option value="priceLowHigh">Price: Low to High</option>
-          <option value="priceHighLow">Price: High to Low</option>
-          <option value="durationShortLong">Duration: Short to Long</option>
-          <option value="durationLongShort">Duration: Long to Short</option>
-        </select>
+        {/* Wrap select in relative div */}
+        <div className="relative w-full md:w-60 max-w-full min-w-0">
+          <select
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+            className="select select-bordered w-full"
+          >
+            <option value="">Sort by</option>
+            <option value="priceLowHigh">Price: Low to High</option>
+            <option value="priceHighLow">Price: High to Low</option>
+            <option value="durationShortLong">Duration: Short to Long</option>
+            <option value="durationLongShort">Duration: Long to Short</option>
+          </select>
+        </div>
       </div>
 
       {/* Loading spinner */}
       {isLoading ? (
-        <div className="flex justify-center items-center py-20">
-          <span className="loading loading-spinner text-blue-600 w-16 h-16"></span>
-        </div>
+        <Loading/>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {packages.map((pkg) => (
