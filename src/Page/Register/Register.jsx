@@ -57,7 +57,7 @@ const handleRegister = e => {
 };
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-blue-100 to-purple-100 p-4">
+        <div className="min-h-screen flex flex-col md:flex-row items-center justify-center p-4">
               <title>Register</title>
                 <div className="max-w-xs w-full">
                     <Lottie animationData={registerLottie} loop={true} />
