@@ -10,7 +10,7 @@ const iconStyle = {
 
 const FeaturedCard = ({ package: pkg }) => {
   return (
-    <div className="w-11/12 mx-auto rounded-2xl p-4 shadow-md hover:shadow-xl transition duration-300 bg-white mt-6">
+    <div className="max-w-7xl mx-auto rounded-2xl p-4 shadow-md hover:shadow-xl transition duration-300 bg-white mt-6">
       <img
         src={pkg.image}
         alt={pkg.tour_name}
