@@ -6,12 +6,14 @@ const FeaturedPackages = ({ feauturedPackagesPromise }) => {
   const packages = use(feauturedPackagesPromise);
 
   return (
-    <section className=" mt-10 max-w-7xl mx-auto">
+    <section className=" max-w-7xl mx-auto mt-10">
       <h2 className="text-4xl font-semibold mb-8 text-center text-blue-700">Featured Packages</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {packages.map(pkg => (
-          <FeaturedCard key={pkg._id} package={pkg} />
+            <div key={pkg._id} className="h-full">
+            <FeaturedCard package={pkg} />
+    </div>
         ))}
       </div>
         <div className="flex justify-center mt-10">

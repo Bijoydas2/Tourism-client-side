@@ -21,10 +21,14 @@ const HeroBanner = () => {
           ease: "easeInOut",
         }}
       />
-     
-      <div className="absolute inset-0 bg-opacity-50" style={{ zIndex: 1 }}></div>
 
-      
+      {/* ⬇⬇⬇ CHANGED: Added black gradient overlay for better text visibility */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"
+        style={{ zIndex: 1 }}
+      ></div>
+      {/* ⬆⬆⬆ END CHANGE */}
+
       <div className="relative z-10 max-w-3xl text-center">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}

@@ -10,7 +10,10 @@ const iconStyle = {
 
 const FeaturedCard = ({ package: pkg }) => {
   return (
-    <div className="max-w-7xl mx-auto rounded-2xl p-4 shadow-md hover:shadow-xl transition duration-300 bg-white mt-6">
+  
+    <div className="max-w-7xl mx-auto rounded-2xl p-4 shadow-md hover:shadow-xl transition duration-300 bg-white mt-6 flex flex-col h-full">
+      
+     
       <img
         src={pkg.image}
         alt={pkg.tour_name}
@@ -45,12 +48,15 @@ const FeaturedCard = ({ package: pkg }) => {
         <strong>Price:</strong>&nbsp;${pkg.price}
       </p>
 
-      <Link
-        to={`/packages/${pkg._id}`}
-        className="btn bg-blue-600 text-white hover:bg-white hover:text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg transition duration-300 w-full flex items-center justify-center gap-2 mt-3"
-      >
-        <FaEye /> View Details
-      </Link>
+   
+      <div className="mt-auto">
+        <Link
+          to={`/packages/${pkg._id}`}
+          className="btn bg-blue-600 text-white hover:bg-white hover:text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg transition duration-300 w-full flex items-center justify-center gap-2"
+        >
+          <FaEye /> View Details
+        </Link>
+      </div>
     </div>
   );
 };
