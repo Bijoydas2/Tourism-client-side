@@ -14,6 +14,7 @@ import PrivateRoute from "../Route/PrivateRoute";
 import PackageBook from "../PackageBook/PackageBook";
 import UpdatePackage from "../Page/Manage-my-packages/UpdatePackge";
 import Contact from "../Page/Contact/Contact";
+import Dashboard from "../Layout/Dashboard";
 
 
 
@@ -35,10 +36,7 @@ export const router = createBrowserRouter([
             path:'/packages/:id',
             element: <PackageDetails/>
         },
-        {
-            path:'/addPackage',
-            element:<PrivateRoute><AddPackage/></PrivateRoute>
-        },
+       
         {
             path:'/managePackages',
             element:<PrivateRoute><ManageMyPackages/></PrivateRoute>
@@ -55,10 +53,7 @@ export const router = createBrowserRouter([
             
 
         },
-        {
-            path:'/myBookings',
-            element:<PrivateRoute><MyBooking/></PrivateRoute>
-        },
+       
         {
             path:'/about',
             Component:About
@@ -76,6 +71,20 @@ export const router = createBrowserRouter([
             Component:Contact
         }
     ]
+  },
+  {
+      path:"/dashboard",
+      element:<PrivateRoute><Dashboard/></PrivateRoute>,
+      children:[
+         {
+            path:'/dashboard',
+            element:<MyBooking/>
+        },
+         {
+            path:'/addPackage',
+            element:<AddPackage/>
+        },
+      ]
   },
   {
       path: "/*",

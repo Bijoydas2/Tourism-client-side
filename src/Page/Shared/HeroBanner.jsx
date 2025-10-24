@@ -4,7 +4,7 @@ import banner from "../../assets/banner.jpg"
 
 const HeroBanner = () => {
   return (
-    <div className="relative min-h-[65vh] flex items-center justify-center px-4 text-white overflow-hidden">
+    <div className="relative min-h-[75vh] flex items-center justify-center px-4 text-white overflow-hidden">
    
       <motion.div
         className="absolute inset-0 bg-center bg-cover"

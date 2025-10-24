@@ -75,14 +75,14 @@ const Navbar = () => {
     {user && (
       <li>
         <NavLink
-          to="/myBookings"
+          to="/dashboard"
           className={({ isActive }) =>
             isActive
               ? "text-blue-600 font-semibold border-b-2 border-blue-600"
               : "hover:text-blue-500 text-gray-800 transition-colors duration-300"
           }
         >
-          My Bookings
+         Dashboard
         </NavLink>
       </li>
     )}
