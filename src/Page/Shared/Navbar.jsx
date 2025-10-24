@@ -174,16 +174,7 @@ const Navbar = () => {
                 {user.email || 'User'}
               </li>
               <li className='border-t-gray-700'></li>
-              <li>
-                <NavLink to="/addPackage" className="hover:text-blue-600 text-gray-800   px-3 py-2 rounded">
-                  Add Package
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/managePackages" className="hover:text-blue-600 text-gray-800  px-3 py-2 rounded">
-                  My All Packages
-                </NavLink>
-              </li>
+             
               <li>
                 <button
                   onClick={handleSignOut}

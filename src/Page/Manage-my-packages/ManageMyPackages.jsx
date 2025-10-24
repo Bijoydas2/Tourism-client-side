@@ -2,6 +2,7 @@ import React, { Suspense, use, useState } from 'react';
 import { AuthContext } from '../../Context/Context';
 import PackageList from './PackageList';
 import { packageCreatedPromise } from '../../api/packageApi';
+import Loading from '../Shared/Loading';
 
 
 const ManageMyPackages = () => {
@@ -12,7 +13,7 @@ const ManageMyPackages = () => {
     return (
         <div>
             <title>Mannage Package</title>
-            <Suspense fallback={<p className="text-center mt-10 text-blue-500">Loading packages...</p>}>
+            <Suspense fallback={<Loading/>}>
                 <PackageList packageCreatedPromise={promise} 
                 onConfirmed={() => setRefreshIndex((prev) => prev + 1)}
                 />
