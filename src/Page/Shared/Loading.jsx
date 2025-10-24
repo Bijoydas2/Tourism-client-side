@@ -18,7 +18,7 @@ const Loading = () => {
 
       {/* Text */}
       <motion.p
-        className="mt-6 text-gray-700 text-lg font-medium tracking-wide"
+        className="mt-6 text-gray-500  text-lg font-medium tracking-wide"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{

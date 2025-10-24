@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {  Outlet } from "react-router";
 import { HiMenu } from "react-icons/hi";
 import Sidebar from "../Page/Shared/Sidebar";
+import MessengerChat from "../Page/Shared/MessengerChat";
 
 
 
@@ -36,6 +37,7 @@ const Dashboard = () => {
       {/* 🔹 Main Content */}
       <div className="flex-1 p-4 overflow-auto bg-gray-50">
         <Outlet />
+        <MessengerChat/>
     
       </div>
 
