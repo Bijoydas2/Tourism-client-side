@@ -91,7 +91,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-blue-50 shadow-md sticky top-0 z-50 px-2">
+    <div className="navbar bg-blue-50 shadow-md sticky top-0 z-50 px-6">
       <div className="navbar-start">
         {/* Mobile menu button */}
         <div className="dropdown">

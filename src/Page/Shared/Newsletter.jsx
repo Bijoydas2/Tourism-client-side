@@ -17,7 +17,7 @@ const Newsletter = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post('https://package-booking-server.vercel.appit /newsletter', { email });
+      const res = await axios.post('https://package-booking-server.vercel.app/newsletter', { email });
       if (res.status === 201) {
         toast.success('Subscribed successfully!');
         setEmail('');
