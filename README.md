@@ -15,9 +15,9 @@ Admins or guides can add, edit, and delete packages with secure authentication a
 ## 🖼️ Screenshots
 
 <div style="display: flex; overflow-x: auto; gap: 10px;">
-  <img src="https://i.ibb.co/99wxq2Rs/Screenshot-2025-10-12-072520.png" width="600" alt="Toremate Screenshot 1">
-  <img src="https://i.ibb.co/HTcDt36k/Screenshot-2025-10-12-072426.png" width="600" alt="Toremate Screenshot 2">
-  <img src="https://i.ibb.co/zh1qTDXp/Screenshot-2025-10-12-072441.png" width="600" alt="Toremate Screenshot 3">
+  <img src="https://i.ibb.co.com/R4jH5zhv/Screenshot-1.png" width="600" alt="Toremate Screenshot 1">
+  <img src="https://i.ibb.co.com/dszkQZdv/Screenshot-2025-10-26-203542.png" width="600" alt="Toremate Screenshot 2">
+  <img src="https://i.ibb.co.com/b5MQ8gqm/Screenshot-2025-10-26-203752.png" width="600" alt="Toremate Screenshot 3">
   <img src="https://i.ibb.co.com/R4jH5zhv/Screenshot-1.png" width="600" alt="Toremate Screenshot 3">
 </div>
 
